@@ -9,8 +9,12 @@ from fastapi.responses import FileResponse
 BASE_DIR = Path(__file__).parent
 STATIC_DIR = BASE_DIR / "static"
 user.base.metadata.create_all(bind= engine)
+
+
+
 app = FastAPI(title= "Student Management System")
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+
 
 @app.get("/")
 def home():

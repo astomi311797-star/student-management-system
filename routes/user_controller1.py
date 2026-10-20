@@ -8,7 +8,7 @@ router = APIRouter(
 prefix="/user"
 )
 
-@router.post("/create")
+@router.post("/create", tags=["Student"])
 def create_user(user_payload : UserCreateRequest, db: Session = Depends(get_db)):
     user_service = UserService()
     user_service.create_user(db, user_payload)
@@ -19,12 +19,12 @@ def create_user(user_payload : UserCreateRequest, db: Session = Depends(get_db))
 #     return service.get_all_user(db)
 
 
-@router.get("/{email}")
+@router.get("/{email}",tags=["Student"])
 def get_user_by_email_new(email:str, db:Session = Depends(get_db)):
     service = UserService()
     return service.get_user_by_email(db, email)
 
-@router.delete("/{email}")
+@router.delete("/{email}",tags=["Student"])
 def delete_by_email_Conto(email:str, db:Session = Depends(get_db)):
     service_New = UserService()
     return service_New.delete_by_email_new(db,email)
