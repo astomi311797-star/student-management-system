@@ -5,8 +5,16 @@ from service import UserService
 from sqlalchemy.orm import Session
 
 router = APIRouter(
-prefix="/user"
-)
+prefix="/user",tags=["student"])
+
+
+
+
+@router.get("/list")
+def get_all_user( db: Session = Depends(get_db)):
+     service = UserService()
+     return service.get_all_user(db=db)
+
 
 @router.post("/create", tags=["Student"])
 def create_user(user_payload : UserCreateRequest, db: Session = Depends(get_db)):

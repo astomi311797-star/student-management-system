@@ -23,9 +23,9 @@ class UserRepository:
             db.commit()
     
 
-    # def get_all_user(self, db: Session):
-    #     db_users= db.query(User).all()
-    #     return db_users
+    def get_all_user(self, db: Session):
+        db_users= db.query(User).all()
+        return db_users
     
     # def delete_by_email(self, db: Session, email: str):
     #      User = db.query(User).filter(User.email == email).first()

@@ -25,6 +25,9 @@ class UserService:
         self.user_respository.delete_by_email(db,email)
         return "Delete Successfully"
 
+    def get_all_user(self, db:Session):
+        return self.user_respository.get_all_user(db)
+
 
     
     # def delete_by_mail(self, db: Session, email: str):
